@@ -1,27 +1,38 @@
 import requests
 import json
 import os
+import time
 
-# Load credentials from environment variables
 USERNAME = os.environ.get("LEETCODE_USERNAME")
 SESSION = os.environ.get("LEETCODE_SESSION")
 
-# LeetCode headers for authentication
 headers = {
     "cookie": f"LEETCODE_SESSION={SESSION}",
     "referer": "https://leetcode.com",
     "Content-Type": "application/json",
-    "User-Agent": "Mozilla/5.0"  # helps avoid bot detection
+    "User-Agent": "Mozilla/5.0"
 }
 
-def fetch_submissions():
-    # GraphQL query to fetch recent submissions
+# Maps LeetCode language to file extension
+LANG_MAP = {
+    "python3": "py",
+    "cpp": "cpp",
+    "java": "java",
+    "c": "c",
+    "csharp": "cs",
+    "javascript": "js",
+    "typescript": "ts",
+    "go": "go",
+    "ruby": "rb",
+    "swift": "swift"
+}
+
+def fetch_submissions(limit=20):
+    print("🔄 Fetching recent submissions...")
+
     query = {
         "operationName": "mySubmissions",
-        "variables": {
-            "offset": 0,
-            "limit": 20
-        },
+        "variables": {"offset": 0, "limit": limit},
         "query": """
         query mySubmissions($offset: Int!, $limit: Int!) {
             submissionList(offset: $offset, limit: $limit) {
@@ -31,58 +42,50 @@ def fetch_submissions():
                     statusDisplay
                     lang
                     timestamp
-                    code
                 }
             }
         }
         """
     }
 
-    # Send POST request to LeetCode's internal GraphQL API
-    response = requests.post("https://leetcode.com/graphql", headers=headers, data=json.dumps(query))
+    res = requests.post("https://leetcode.com/graphql", headers=headers, data=json.dumps(query))
+    data = res.json()
 
-    try:
-        data = response.json()
-    except Exception as e:
-        print("❌ Failed to parse JSON:", e)
-        print("Raw response:\n", response.text)
-        return
-
-    # Check if the response contains submission data
-    if "data" not in data or not data["data"].get("submissionList"):
-        print("❌ Invalid or expired session. API response:")
+    if "data" not in data:
+        print("❌ Failed to fetch submissions. Response:")
         print(json.dumps(data, indent=2))
-        return
+        return []
 
-    submissions = data["data"]["submissionList"]["submissions"]
+    return data["data"]["submissionList"]["submissions"]
 
-    # Ensure output directory exists
+def fetch_code(submission_id):
+    url = f"https://leetcode.com/submissions/detail/{submission_id}/check/"
+    res = requests.get(url, headers=headers)
+    if res.status_code == 200:
+        try:
+            return res.json().get("code", "")
+        except:
+            return ""
+    return ""
+
+def save_solution(title, lang, code):
+    ext = LANG_MAP.get(lang, "txt")
+    filename = f"solutions/{title.replace(' ', '_').replace('/', '_')}.{ext}"
     os.makedirs("solutions", exist_ok=True)
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(code)
+    print(f"✅ Saved: {filename}")
 
-    # Save each accepted solution
+def main():
+    submissions = fetch_submissions()
     for sub in submissions:
         if sub["statusDisplay"] == "Accepted":
-            # Get file extension based on language
-            lang = sub["lang"]
-            ext = {
-                "python3": "py",
-                "cpp": "cpp",
-                "java": "java",
-                "c": "c",
-                "csharp": "cs",
-                "javascript": "js",
-                "typescript": "ts",
-                "go": "go",
-                "ruby": "rb",
-                "swift": "swift"
-            }.get(lang, "txt")
-
-            # Clean filename and save code
-            title = sub["title"].replace(" ", "_").replace("/", "_")
-            filename = f"solutions/{title}.{ext}"
-            with open(filename, "w", encoding="utf-8") as f:
-                f.write(sub["code"])
-            print(f"✅ Saved: {filename}")
+            code = fetch_code(sub["id"])
+            if code:
+                save_solution(sub["title"], sub["lang"], code)
+                time.sleep(1)  # polite delay
+            else:
+                print(f"⚠️ Could not fetch code for {sub['title']}")
 
 if __name__ == "__main__":
-    fetch_submissions()
+    main()
