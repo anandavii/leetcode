@@ -1,4 +1,4 @@
-//https://leetcode.com/problems/running-sum-of-1d-array/description/
+// https://leetcode.com/problems/running-sum-of-1d-array/description/
 public class RunningSumof1dArray {
     class Solution {
         public int[] runningSum(int[] nums) {
