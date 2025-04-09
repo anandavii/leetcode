@@ -33,7 +33,7 @@ _(Auto-generated file paths will be added here in future)_
 
 | # | 🧠 Problem | 📄 Java File | 🔗 LeetCode |
 |---|------------|--------------|-------------|
-| 1 | Fizz Buzz | [FizzBuzz.java](FizzBuzz.java) | [Link](https://leetcode.com/problems/fizz-buzz/description/) |
+| 1 | Fiz Buzz | [FizBuzz.java](FizBuzz.java) | [Link](https://leetcode.com/problems/fizz-buzz) |
 | 2 | Numberof Stepsto Reducea Numberto Zero | [NumberofStepstoReduceaNumbertoZero.java](NumberofStepstoReduceaNumbertoZero.java) | [Link](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/) |
 | 3 | Richest Customer Wealth | [RichestCustomerWealth.java](RichestCustomerWealth.java) | [Link](https://leetcode.com/problems/richest-customer-wealth/) |
 | 4 | Running Sumof1D Array | [RunningSumof1dArray.java](RunningSumof1dArray.java) | [Link](https://leetcode.com/problems/running-sum-of-1d-array/description/) |
