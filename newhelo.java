@@ -1,4 +1,4 @@
-package PACKAGE_NAME;
+// https://leetcode.com/problems/fizz-buzz/description/newhelo
 
 public class newhelo {
 }
