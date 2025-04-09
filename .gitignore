@@ -7,3 +7,4 @@ nohup.out
 # log files
 nohup.out
 auto_push.log
+*.log
