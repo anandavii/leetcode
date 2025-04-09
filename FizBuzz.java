@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/fizz-buzz
+// https://leetcode.com/problems/fizz-buzz/
 public class FizBuzz {
     class Solution {
         public List<String> fizzBuzz(int n) {
