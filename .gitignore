@@ -2,6 +2,7 @@
 *.sh
 *.out
 *.log
+*.DS_Store
 
 # log files
 nohup.out
