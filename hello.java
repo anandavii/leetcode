@@ -1,4 +1,3 @@
-package PACKAGE_NAME;
-
+// https://abhishekanand.cloud
 public class hello {
 }
