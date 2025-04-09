@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/fizz-buzz/description/
-    class Solution {
+public class FizBuzz
+class Solution {
         public List<String> fizzBuzz(int n) {
             List<String> answer = new ArrayList<>(n);
 
@@ -19,4 +20,5 @@
             return answer;
         }
     }
+    
 
