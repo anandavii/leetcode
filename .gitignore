@@ -1,10 +1,9 @@
-.idea
-.sh
-nohup.out
-.out
-.log
+*.idea
+*.sh
+*.out
+*.log
 
 # log files
 nohup.out
 auto_push.log
-*.log
+
