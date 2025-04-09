@@ -3,3 +3,7 @@
 nohup.out
 .out
 .log
+
+# log files
+nohup.out
+auto_push.log
