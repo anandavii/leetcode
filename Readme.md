@@ -34,6 +34,7 @@ _(Auto-generated file paths will be added here in future)_
 | # | 🧠 Problem | 📄 Java File | 🔗 LeetCode |
 |---|------------|--------------|-------------|
 | 1 | Fizz Buzz | [FizzBuzz.java](FizzBuzz.java) | [Link](https://leetcode.com/problems/fizz-buzz/) |
-| 2 | Number Of Steps To Reducea Number To Zero | [NumberOfStepsToReduceaNumberToZero.java](NumberOfStepsToReduceaNumberToZero.java) | [Link](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/) |
-| 3 | Richest Customer Wealth | [RichestCustomerWealth.java](RichestCustomerWealth.java) | [Link](https://leetcode.com/problems/richest-customer-wealth/) |
-| 4 | Running Sum Of1D Array | [RunningSumOf1dArray.java](RunningSumOf1dArray.java) | [Link](https://leetcode.com/problems/running-sum-of-1d-array/description/) |
+| 2 | Hello World | [HelloWorld.java](HelloWorld.java) | [Link](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/) |
+| 3 | Number Of Steps To Reducea Number To Zero | [NumberOfStepsToReduceaNumberToZero.java](NumberOfStepsToReduceaNumberToZero.java) | [Link](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/) |
+| 4 | Richest Customer Wealth | [RichestCustomerWealth.java](RichestCustomerWealth.java) | [Link](https://leetcode.com/problems/richest-customer-wealth/) |
+| 5 | Running Sum Of1D Array | [RunningSumOf1dArray.java](RunningSumOf1dArray.java) | [Link](https://leetcode.com/problems/running-sum-of-1d-array/description/) |
