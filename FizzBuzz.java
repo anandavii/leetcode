@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/fizz-buzz/
-public class FizBuzz {
+public class FizzBuzz {
     class Solution {
         public List<String> fizzBuzz(int n) {
             List<String> answer = new ArrayList<>(n);
