@@ -31,7 +31,6 @@ The repository auto-commits any changes to `.java` files and also updates this `
 
 ## 📂 Folder Structure
 
-_(Auto-generated file paths will be added here in future)_
 
 ---
 
