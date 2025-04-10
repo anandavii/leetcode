@@ -1,6 +1,7 @@
 // https://leetcode.com/problems/middle-of-the-linked-list/description/
 public class MiddleOfTheLinkedList {
     /**
+     * 
      * Definition for singly-linked list.
      * public class ListNode {
      *     int val;
